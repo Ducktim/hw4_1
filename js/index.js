@@ -1,19 +1,15 @@
-import {validateData} from "./validator.js";
-import {  getInputValue} from "./getValue.js";
-import {clearRequest} from "./clearRequest.js";
-import {postRequest} from "./postRequest.js";
+import {getInputValue} from "./getValue.js";
+
 const buttonSubmit = document.querySelector('.validate_button');
+const answerDiv = document.querySelector('#result_table');
 
-buttonSubmit.addEventListener("click",() =>{
+function answer(k, x, l, E) {
+    return 4 * l * Math.sqrt(3.14 * k * x * E);
+}
+
+buttonSubmit.addEventListener("click", () => {
     const inputValue = getInputValue();
-    console.log(inputValue)
-
-    let body = {
-        "kValue": inputValue[0],
-        "xValue": inputValue[1],
-        "lValue": inputValue[2],
-        "EValue": inputValue[3],
-    }
-    postRequest('php/back.php', body)
-    console.log(body)
+    const divAnswer = document.createElement('div');
+    divAnswer.textContent = answer(inputValue[0], inputValue[1], inputValue[2], inputValue[3]);
+    answerDiv.appendChild(divAnswer)
 })
