@@ -11,5 +11,6 @@ buttonSubmit.addEventListener("click", () => {
     const inputValue = getInputValue();
     const divAnswer = document.createElement('div');
     divAnswer.textContent = answer(inputValue[0], inputValue[1], inputValue[2], inputValue[3]);
+    console.log(divAnswer)
     answerDiv.appendChild(divAnswer)
 })
